@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="shortcut icon" type="image/png" href="Images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&display=swap" rel="stylesheet">
+
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/css/mainOne.css" />
+
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="@Url.Action("Index","Home")">
+            Home
+            <img class="logimg" src="~/Images/home.png" width="25" height="25">
+
+        </a>
+
+        <div class="dropdown">
+            <button class="dropbtn">
+                Gigs
+                <img class="logimg" src="~/Images/gigs.png" width="25" height="25">
+
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="@Url.Action("AllFilms","Home")">All Gigs</a>
+                <a href="@Url.Action("CheapGigs","Home")">Less than £150</a>
+                <a href="@Url.Action("MediumPriceGigs","Home")">Less than £250</a>
+                <a href="@Url.Action("ExpensiveGigs","Home")">Over £250</a>
+            </div>
+        </div>
+        <a href="@Url.Action("ManageCart","Home")">
+            CART
+            <img class="logimg" src="~/Images/cart.png" width="25" height="25">
+        </a>
+        @if (ViewData["disName"].ToString().Contains("Not"))
+        {
+            <a href="@Url.Action("SignIn","Security")">
+                <span>login</span>
+                <img class="logimg" src="~/Images/login.png" width="20" height="20">
+            </a>
+
+        }
+        else
+        {
+            <a href="@Url.Action("Index","CMS")">
+                @ViewData["disName"]
+
+                <img class="logimg" src="~/Images/login.png" width="20" height="20">
+
+            </a>
+        }
+    </div>
+       
+
+            <video autoplay muted loop id="myVideo">
+                <source src="Videos/music1.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+        <div class="twitter-feed">
+            <a class="twitter-timeline" data-lang="en" data-width="300" data-height="300" data-theme="dark" href="https://twitter.com/BBC6Music?ref_src=twsrc%5Etfw">Tweets by BBC6Music</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+        <div class="Scontainer">
+            Basic Mode
+            <label class="switch">
+                <input type="checkbox" onclick="simpleMode()" checked>
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <img src="Images/nextButton.png" class="nextImage" onclick="addToImage()" alt="Forward Button" width="100" height="100">
+        <img src="Images/nextButton.png" class="nextImageBack" onclick="minusFromImage()" alt="Back Button" width="100" height="100">
+        <img src="Images/logo.png" class="logoIMG" alt="Back Button">
+        <div class="audiofile">
+            <img src="Images/skip.png" class="skip" onclick="nextSong()" width="20" height="20">
+
+            <p id="para">JNATHYN - Dioma [NCS Release]
+
+            <p>
+                <audio controls id="audioA">
+                    <source src="Audio/defaultSong.mp3" type="audio/mpeg">
+                </audio>
+        </div>
+
+
+        <script>
+
+            var video = 0;
+            var audio = 0;
+            var sMode = 0;
+            var randBack = 0;
+            function simpleMode() {
+                sMode += 1;
+
+                if (sMode % 2 != 0) {
+                    document.querySelector(".nextImage").style.visibility = "visible";
+                    document.querySelector(".nextImageBack").style.visibility = "visible";
+                    document.querySelector(".logoIMG").style.visibility = "visible";
+                    document.querySelector(".audiofile").style.visibility = "visible";
+                    document.getElementById("myVideo").style.visibility = "visible";
+                    document.body.style.backgroundImage = url("/Images/britneySS.jpeg");
+
+
+                }
+                else if (sMode % 2 == 0 || sMode == 0) {
+                    getRandomImage();
+                    randBack += 1;
+                    document.querySelector(".nextImage").style.visibility = "hidden";
+                    document.querySelector(".nextImageBack").style.visibility = "hidden";
+                    document.querySelector(".audiofile").style.visibility = "hidden";
+                    document.getElementById("myVideo").style.visibility = "hidden";
+                    if (randBack == 0) { document.body.style.backgroundImage = "url('/Images/jayZZ.jpg')"; }
+                    if (randBack == 1) { document.body.style.backgroundImage = "url('/Images/eltonJ.jpg')"; }
+                    if (randBack == 2) { document.body.style.backgroundImage = "url('/Images/ladyGG.jpg')"; }
+                    if (randBack == 3) { document.body.style.backgroundImage = "url('/Images/juiceWW.jpeg')"; }
+                    if (randBack == 4) { document.body.style.backgroundImage = "url('/Images/kendrickLL.jpeg')"; }
+                }
+
+            }
+            function getRandomImage() {
+                var images = ["eltonJ.jpg", "jayZZ.jpg", "juiceWW.jpeg", "ladyGG.jpg", "kendrickLL.jpeg"];
+
+                return images[Math.floor(Math.random() * images.length)];
+            }
+            function nextSong() {
+                if (audio < 3) {
+                    audio += 1;
+                }
+                else if (audio == 3) {
+                    audio = 0
+                }
+                changeimage();
+            }
+            function addToImage() {
+                if (video != 4) {
+                    video += 1;
+                }
+                changeimage();
+            }
+            function minusFromImage() {
+                if (video != 0) {
+                    video -= 1;
+                }
+                changeimage();
+            }
+
+            function changeimage() {
+                if (video == 0) { document.querySelector("#myVideo").src = "Videos/music1.mp4"; }
+                if (video == 1) { document.querySelector("#myVideo").src = "Videos/music2.mp4"; }
+                if (video == 2) { document.querySelector("#myVideo").src = "Videos/music3.mp4"; }
+                if (video == 4) { document.querySelector("#myVideo").src = "Videos/music4.mp4"; }
+                if (audio == 0) { document.querySelector("#audioA").src = "Audio/defaultSong.mp3"; document.querySelector("#para").innerHTML = "JNATHYN - Dioma [NCS Release] " }
+                if (audio == 1) { document.querySelector("#audioA").src = "Audio/song2.mp3"; document.querySelector("#para").innerHTML = "Facading - You and Me " }
+                if (audio == 2) { document.querySelector("#audioA").src = "Audio/song3.mp3"; document.querySelector("#para").innerHTML = "Raptures & Jeonghyeon - Into The Light " }
+
+            }
+
+        </script>
+
+        <div>
+            @RenderBody()
+        </div>
+    </body>
+</html>

@@ -1,0 +1,105 @@
+﻿@model Register
+@{
+    Layout = null;
+}
+<html>
+
+    <head>
+        <title>All Gigs</title>
+        <link rel="shortcut icon" type="image/png" href="~/Images/favicon.png" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="~/css/login - Copy.css">
+    </head>
+
+    <body>
+        <div class="topnav">
+            <a href="@Url.Action("Index","Home")">
+                Home
+                <img class="logimg" src="~/Images/home.png" width="25" height="25">
+
+            </a>
+
+            <div class="dropdown">
+                <button class="dropbtn">
+                    Gigs
+                    <img class="logimg" src="~/Images/gigs.png" width="25" height="25">
+
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="@Url.Action("AllFilms","Home")">All Gigs</a>
+                    <a href="@Url.Action("CheapGigs","Home")">Less than £150</a>
+                    <a href="@Url.Action("MediumPriceGigs","Home")">Less than £250</a>
+                    <a href="@Url.Action("ExpensiveGigs","Home")">Over £250</a>
+                </div>
+            </div>
+            <a href="@Url.Action("ManageCart","Home")">
+                CART
+                <img class="logimg" src="~/Images/cart.png" width="25" height="25">
+            </a>
+            @if (ViewData["disName"].ToString().Contains("Not"))
+            {
+                <a href="@Url.Action("SignIn","Security")">
+                    <span>login</span>
+                    <img class="logimg" src="~/Images/login.png" width="20" height="20">
+                </a>
+
+            }
+            else
+            {
+                <a href="@Url.Action("Index","CMS")">
+                    @ViewData["disName"]
+
+                    <img class="logimg" src="~/Images/login.png" width="20" height="20">
+
+                </a>
+            }
+        </div>
+
+        <div class="op-modal">
+            <div class="opmodal-content">
+
+                <h2>Create New User Account</h2>
+                <form method="post">
+                    <table>
+                        <tr class="catergory">
+                            <td><label asp-for="UserName"></label></td>
+                            <td><input type="text" asp-for="UserName" /></td>
+                        </tr>
+                        <tr class="catergory">
+                            <td><label asp-for="Password"></label></td>
+                            <td><input type="password" asp-for="Password" /></td>
+                        </tr>
+                        <tr class="catergory">
+                            <td><label asp-for="ConfirmPassword"></label></td>
+                            <td><input type="password" asp-for="ConfirmPassword" /></td>
+                        </tr>
+                        <tr class="catergory">
+                            <td><label asp-for="Email"></label></td>
+                            <td><input type="text" asp-for="Email" /></td>
+                        </tr>
+                        <tr class="catergory">
+                            <td><label asp-for="FullName"></label></td>
+                            <td><input type="text" asp-for="FullName" /></td>
+                        </tr>
+                        <tr>
+                            <td class="catergory"><label asp-for="BirthDate"></label></td>
+                            <td><input type="date" asp-for="BirthDate" /></td>
+                        </tr>
+                        <tr class="catergory">
+                            <td colspan="2">
+                                <button class ="button1" type="submit">Create</button>
+                            </td>
+                        </tr>
+                    </table>
+                    <div asp-validation-summary="All" class="message"></div>
+
+                    <h3 class="signIn"><a asp-page="/Security/SignIn" style="text-decoration:none; color:white;font-weight:lighter">Sign-In Page</a></h3>
+
+                </form>
+            </div>
+         </div>
+    </body>
+</html>

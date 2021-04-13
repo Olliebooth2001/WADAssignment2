@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Audio\defaultSong.mp3" />
+    <None Include="wwwroot\Audio\song2.mp3" />
+    <None Include="wwwroot\Audio\song3.mp3" />
+    <None Include="wwwroot\Images\beatles.jpg" />
+    <None Include="wwwroot\Images\blackLeather.jpg" />
+    <None Include="wwwroot\Images\clash.jpg" />
+    <None Include="wwwroot\Images\favicon.png" />
+    <None Include="wwwroot\Images\kinks.jpg" />
+    <None Include="wwwroot\Images\login.png" />
+    <None Include="wwwroot\Images\logo.png" />
+    <None Include="wwwroot\Images\nextButton.png" />
+    <None Include="wwwroot\Images\skip.png" />
+    <None Include="wwwroot\Images\smiths.jpg" />
+    <None Include="wwwroot\Videos\logo.mp4" />
+    <None Include="wwwroot\Videos\music1.mp4" />
+    <None Include="wwwroot\Videos\music2.mp4" />
+    <None Include="wwwroot\Videos\music3.mp4" />
+    <None Include="wwwroot\Videos\music4.mp4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

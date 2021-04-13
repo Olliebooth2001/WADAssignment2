@@ -1,0 +1,184 @@
+﻿@{
+
+    ViewData["Title"] = "Manage Cart";
+    ViewData["PageHeading"] = "Manage Cart";
+    Layout = null;
+    decimal cartTotal = 0;
+
+}
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <link rel="shortcut icon" type="image/png" href="Images/favicon.png" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&display=swap" rel="stylesheet">
+
+        <title>@ViewBag.Title</title>
+        <link rel="stylesheet" href="~/css/manageCart.css" />
+
+    </head>
+    <body>
+        <div class="topnav">
+            <a  href="@Url.Action("Index","Home")">
+                Home
+                <img class="logimg" src="~/Images/home.png" width="25" height="25">
+            </a>
+
+            <div class="dropdown">
+                <button class="dropbtn">
+                    Gigs
+                    <img class="logimg" src="~/Images/gigs.png" width="25" height="25">
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="@Url.Action("AllFilms","Home")">All Gigs</a>
+                    <a href="@Url.Action("CheapGigs","Home")">Less than £150</a>
+                    <a href="@Url.Action("MediumPriceGigs","Home")">Less than £250</a>
+                    <a href="@Url.Action("ExpensiveGigs","Home")">Over £250</a>
+                </div>
+            </div>
+            <a class="active" href="@Url.Action("ManageCart","Home")">
+                CART
+                <img class="logimg" src="~/Images/cart.png" width="25" height="25">
+            </a>
+            @if (ViewData["disName"].ToString().Contains("Not"))
+            {
+                <a href="@Url.Action("SignIn","Security")">
+                    <span>login</span>
+                    <img class="logimg" src="~/Images/login.png" width="20" height="20">
+                </a>
+
+            }
+            else
+            {
+                <a href="@Url.Action("Index","CMS")">
+                    @ViewData["disName"]
+
+                    <img class="logimg" src="~/Images/login.png" width="20" height="20">
+
+                </a>
+            }
+        </div>
+       
+        <div class="contain">
+            <section class="wrap">
+
+                <div class="openText" style="text-align:center;">
+                    @if (ViewData["disName"].ToString().Contains("Not"))
+                    {
+                        <p>Shopping Cart</p>
+
+                    }
+                    else
+                    {
+                        <p>@ViewData["disName"]'s Shopping Cart</p>
+
+                    }
+                </div>
+
+
+                @if (ViewData["disName"].ToString().Contains("Not"))
+                {
+                    <div>
+                        <p>You must be logged in to access the shopping cart</p>
+                    </div>
+                }
+                else if (Model.Count == 0)
+                {
+                    <div>
+
+                        <p>Shopping Cart Empty.</p>
+
+                    </div>
+                }
+
+                else
+
+                {
+
+                    <div>
+
+                        @if (ViewBag.msg != null)
+                        {
+
+                            <p class="msg">@ViewBag.msg</p>
+
+                        }
+
+                        <table class="fullCart">
+
+                            <tr>
+
+                                <th>ID</th>
+
+                                <th>Film</th>
+
+                                <th>Quantity</th>
+
+                                <th>Price</th>
+
+                                <th>Cost</th>
+
+                                <th></th>
+
+                            </tr>
+
+                            @foreach (var item in Model)
+
+                            {
+
+                                cartTotal += item.OrderQuantity * item.GigPrice;
+
+                                <tr>
+
+                                    <td>@item.GigID</td>
+
+                                    <td>@item.GigTitle</td>
+
+                                    <td>@item.OrderQuantity</td>
+
+                                    <td>£@(item.GigPrice.ToString("0.00"))</td>
+
+                                    <td>£@((item.OrderQuantity * item.GigPrice).ToString("0.00"))</td>
+
+                                    <td>
+
+                                        <form method="post" asp-action="RemoveCartItem">
+
+                                            <input type="hidden" name="GigID" id="GigID" value="@item.GigID" />
+
+                                            <input type="submit" value="Delete" />
+
+                                        </form>
+
+                                    </td>
+
+                                </tr>
+
+                            }
+
+                            <tr>
+
+                                <td></td>
+
+                                <td></td>
+
+                                <td></td>
+
+                                <td></td>
+
+                                <td>£@cartTotal.ToString("0.00")</td>
+
+                                <td></td>
+
+                            </tr>
+
+                        </table>
+
+                    </div>
+                }
+            </section>
+        </div>
+    </body>
+</html>

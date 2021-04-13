@@ -1,0 +1,42 @@
+﻿@model WAD.Models.GigForm
+@{
+    Layout = "_CMSlayout";
+}
+    <h1 class="head1" style="text-align:center;">Add Gig</h1>
+    <div class="addContainer">
+        <form asp-controller="CMS" asp-action="AddFilm">
+            <div style="padding-top:10px;">
+                <label asp-for="GigTitle">Gig Title</label>
+                <input type="text" asp-for="GigTitle" />
+                <span asp-validation-for="GigTitle" class="error"></span>
+
+            </div>
+
+
+            <div style="padding-top:10px;">
+                <label asp-for="GigDescription">Gig Description</label>
+                <textarea asp-for="GigDescription"></textarea>
+            </div>
+
+            <div style="padding-top:10px;">
+                <label asp-for="GigImage">Gig Image</label>
+                <input asp-for="GigImage" />
+            </div>
+
+            <div style="padding-top:10px;">
+                <label asp-for="GigPrice">Film Price</label>
+                <input type="text" asp-for="GigPrice" />
+            </div>
+
+
+            <div style="padding-top:10px;">
+                <label asp-for="ReleaseDate" style="padding-right:10px">Release Date</label>
+                <input type="date" asp-for="ReleaseDate" />
+            </div>
+
+            <div style="padding-top:10px; text-align:center;">
+                <input type="submit" value="Add" class="add" />
+            </div>
+
+        </form>
+    </div>

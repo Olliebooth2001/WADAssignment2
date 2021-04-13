@@ -1,0 +1,17 @@
+﻿@model WAD.Models.GigForm
+@{
+    Layout = "_CMS";
+    ViewData["Title"] = "Delete Gig";
+}
+
+<form method="post">
+
+    <input type="hidden" name="GigID" value="@Model.GigID" />
+
+    <p>Delete film @Model.GigTitle?</p>
+
+    <p><input type="submit" value="Delete" class="delete" /></p>
+
+    <p><a asp-controller="CMS" asp-action="Index" class="add">Keep</a><br></p>
+
+</form>

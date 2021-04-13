@@ -1,0 +1,229 @@
+﻿* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    height: 100%;
+    background-color: black;
+    font-family: 'IBM Plex Mono', monospace;
+    color: white;
+}
+h1 {
+    text-align: center;
+    letter-spacing: 5px;
+    font-size: 100px;
+    text-shadow: 2px 2px #5ce2e7;
+}
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+    padding-left: 20px;
+    display: flex;
+    letter-spacing: 5px;
+    justify-content: space-evenly;
+    font-family: 'Bebas Neue', cursive;
+    font-size: x-large;
+    z-index: 2;
+}
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: inherit;
+    z-index: 2;
+}
+
+.topnav a:hover {
+     background-color: #ddd;
+     color: black;
+     z-index: 2;
+}
+
+.topnav a.active {
+      background-color: #5ce2e7;
+      color: white;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+    background-color: #5ce2e7;
+    z-index: 4;
+}
+
+    .dropdown .dropbtn {
+        background-color: #5ce2e7;
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-size: inherit;
+        letter-spacing: inherit;
+        z-index: 2;
+        font-family: inherit;
+        margin: 0;
+    }
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+        background-color: #ddd;
+        color: black;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 3;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+   background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+section {
+    justify-content:center;
+    flex: 0 0 75%;
+    display: flex;
+}
+
+.wrap {
+    flex-wrap: wrap;
+    position: relative;
+    text-align: center;
+}
+@media screen and (max-width:4000px) and (min-width: 1501px) {
+    section > div.filmThumb {
+        padding: 5px;
+        width: calc((100% / 4));
+    }
+}
+@media screen and (max-width:1500px) and (min-width: 1000px) {
+    section > div.filmThumb {
+        padding: 5px;
+        width: calc((100% / 3));
+    }
+}
+@media screen and (max-width: 999px) and (min-width: 450px) {
+    section > div.filmThumb {
+        padding: 5px;
+        width: calc((100% /2));
+    }
+    .openText p{
+        font-size: 75px;
+    }
+    .logimg {
+        display: none;
+    }
+   
+}
+@media screen and (max-width: 444px) and (min-width: 0px) {
+    section > div.filmThumb {
+        padding: 5px;
+        width: calc((100% / 2));
+    }
+    .logimg {
+        display: none;
+    }
+}
+
+.filmThumb {
+    overflow: hidden;
+    font-size: 10px;
+    
+}
+.title {
+    font-size: 20px;
+    
+}
+
+section > div > h3 > a {
+    font-weight: 100;
+    margin: 0 0 15px 0;
+    color: #000;
+    text-decoration: none;
+}
+
+div.filmThumb > div {
+    overflow: hidden;
+   
+}
+
+div.filmThumb > div > a > img {
+        width: 100%;
+        transform: scale(0.9,0.9);
+        transition: all 0.5s;
+}
+
+div.filmThumb > div > a > img:hover {
+    transform: scale(1,1);       
+}
+
+/*.image {
+    border-radius: 3px;
+    border: 2px solid #333;
+    overflow: hidden;
+}
+.image:hover {
+     transform: scale(1.1);
+     transition: all 0.5s ease-in;
+     
+}*/
+.head4 {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .2s, visibility .2s;
+}
+.button {
+    text-decoration: none;
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #404040;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    font-family: 'IBM Plex Mono', monospace;
+    color: white;
+}
+}
+
+.button:hover {
+    background-color: #324B4C;
+}
+
+.button:active {
+    background-color: #324B4C;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+
+.link{
+    text-decoration:none;
+}

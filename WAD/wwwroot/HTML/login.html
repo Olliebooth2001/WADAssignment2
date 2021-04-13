@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="shortcut icon" type="image/png" href="~/Images/favicon.png"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="~/css/login.css"/>
+
+    </head>
+
+    <body>
+       
+        <div class="topnav">
+            <a href="index.html">Home</a>
+            <a href="gigs.html">Gigs</a>
+            <div class="dropdown">
+              <button class="dropbtn">About 
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="popArtists.html">Popular Artists</a>
+                <a href="upNcoming.html">Up and coming Artists</a>
+                <a href="popSongs.html">Popular Songs</a>
+                
+              </div>
+            </div> 
+            <a class="active" href="login.html">LOGIN <img src = "Images/login.png" width="20" height="20"></a>
+          </div>
+
+      
+        <div class="op-modal">
+          <div class="opmodal-content">
+            <video autoplay muted loop id="loginLogo" width="200"height="200">
+                <source src="Videos/logo.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+
+                <form action="" method="post">
+        
+                 <div class="container">
+                     <label for="uname"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="uname" required>
+              
+                    <label for="psw"><b>Password</b></label>
+                     <input type="password" placeholder="Enter Password" name="psw" required>
+
+                     <button type="submit">Login</button>
+                     <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                  </label>
+                </div>
+              
+                 <div class="container" style="background-color:#82A0AA">
+                    <button type="button" class="cancelbtn">Cancel</button>
+                    <span class="psw">Forgot <a href="#">password?</a></span>
+                 </div>
+                </form>
+
+            </div>
+        </div>
+
+    </body>
+</html>

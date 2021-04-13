@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "_CMSlayout";
+}
+
+<p><a asp-controller="CMS" asp-action="AddFilm" class="addF">Add Film<img src="~/Images/cross.png" width="25" height="25" /></a></p>
+<div class="tableContainer">
+
+
+    <table class="table1">
+        <tr class="headings">
+            <td>Gig Title</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+        @foreach (var item in Model)
+
+        {
+            <tr>
+                <td><a asp-controller="Home" asp-action="FilmDetails" asp-route-id="@item.GigID" class="title">@item.GigTitle</a></td>
+                <td><p><a asp-controller="CMS" asp-action="UpdateFilm" asp-route-id="@item.GigID" class="edit">Update</a></p></td>
+                <td><p><a asp-controller="CMS" asp-action="DeleteGig" asp-route-id="@item.GigID" class="delete">Delete</a></p></td>
+            </tr>
+        }
+
+    </table>
+</div>
