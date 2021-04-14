@@ -12,7 +12,7 @@ namespace WAD.Models
         [Key]
         public int GigID { get; set; }
 
-        [Required(ErrorMessage = "Don't make us guess.  What film are we talking about?")]
+        [Required(ErrorMessage = "Don't make us guess.  What Gig are we talking about?")]
         public string GigTitle { get; set; }
 
         public string GigDescription { get; set; }

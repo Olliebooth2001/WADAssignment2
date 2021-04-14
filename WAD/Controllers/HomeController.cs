@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WAD.Models;
 using System.Text.Json;
+using System.IO;
 
 namespace WAD.Controllers
 {
@@ -20,6 +21,47 @@ namespace WAD.Controllers
         {
             _logger = logger;
             _context = context;
+        }
+
+
+
+        [HttpGet]
+        public IActionResult Upload()
+        {
+            if (HttpContext.Session.GetString("name") == null)
+            {
+                ViewData["disName"] = "Not set";
+            }
+            else
+            {
+                ViewData["disName"] = HttpContext.Session.GetString("name");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Upload(List<IFormFile> files)
+        {
+            long size = files.Sum(f => f.Length);
+
+            var filePaths = new List<string>();
+            foreach (var formFile in files)
+            {
+                if (formFile.Length > 0)
+                {
+
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory() + "/wwwroot/Images/", formFile.FileName);
+
+                    filePaths.Add(filePath);
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await formFile.CopyToAsync(stream);
+                    }
+                }
+            }
+            return RedirectToAction("Index", "CMS");
+
+            //return Ok();
         }
 
         public IActionResult Index()

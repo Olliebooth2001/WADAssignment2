@@ -1,18 +1,19 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿
+@{
+    Layout = null;
+}
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Sheffield Streams</title>
+    <title>Upload Image</title>
     <link rel="shortcut icon" type="image/png" href="~/Images/favicon.png" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="~/css/cmsStyleSheet.css" />
+    <link rel="stylesheet" href="~/css/login - Copy.css">
 </head>
+
+<html>
+
 <body>
-
-
     <div class="topnav">
         <a href="@Url.Action("Index","Home")">
             Home
@@ -56,30 +57,23 @@
             </a>
         }
     </div>
-    <p id="hidee" style="visibility:hidden;">@ViewData["disName"]</p>
-    @if (User.Identity.IsAuthenticated)
-    {
-       
-        <div class="login">
-            <p>Welcome @User.Identity.Name</p>
-            <form asp-controller="Security" asp-action="SignOut" method="post">
-                <button type="submit" class="deletee">Sign Out</button>
+    <div class="up-modal">
+        <div class="upmodal-content">
+            <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Upload">
+                <div class="form-group">
+                    <div class="col-md-10" style="padding-top:50px;">
+                        <h1 class="upTitle">Upload Image:</h1>
+                        <input type="file" name="files" multiple />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="submit" value="Upload" />
+                    </div>
+                </div>
             </form>
         </div>
-    }
-    <script src ="~/js/site.js"></script>
 
-    <main>
-
-        @RenderBody()
-
-
-    </main>
-
-
-    <footer>
-    </footer>
-    @RenderSection("Scripts", required: false)
-
+    </div>
 </body>
 </html>

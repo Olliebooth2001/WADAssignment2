@@ -72,17 +72,19 @@
         @foreach (var item in Model)
         {
             <div class="filmThumb">
+
                 <a asp-controller="Home" asp-action="FilmDetails" asp-route-id="@item.GigID">
-                    <div><img src="~/Images/@item.GigImage" /></div>
+                    <div><img class="gigImg" src="~/Images/@item.GigImage" width="450"height="286"/></div>
                 </a>
                 <h3 class="title">@item.GigTitle</h3>
                 <h3>@item.ReleaseDate</h3>
-
+             
             </div>
+           
+
         }
     </section>
    
-
 
 </body>
 </html>

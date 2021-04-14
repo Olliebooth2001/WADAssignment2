@@ -41,20 +41,20 @@ h1 {
      z-index: 2;
 }
 
-.topnav a.active {
-      background-color: #5ce2e7;
-      color: white;
-}
+    .topnav a.active {
+        background-color: #2e7174;
+        color: white;
+    }
 
 .dropdown {
     float: left;
     overflow: hidden;
-    background-color: #5ce2e7;
+    background-color: #2e7174;
     z-index: 4;
 }
 
     .dropdown .dropbtn {
-        background-color: #5ce2e7;
+        background-color: #2e7174;
         font-size: 16px;
         border: none;
         outline: none;
@@ -204,25 +204,13 @@ div.filmThumb > div > a > img:hover {
     cursor: pointer;
     outline: none;
     color: #fff;
-    background-color: #404040;
+    background-color: black;
     border: none;
     border-radius: 15px;
-    box-shadow: 0 9px #999;
     font-family: 'IBM Plex Mono', monospace;
     color: white;
+    border-color: #e7e7e7;
 }
-}
-
-.button:hover {
-    background-color: #324B4C;
-}
-
-.button:active {
-    background-color: #324B4C;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-}
-
 
 .link{
     text-decoration:none;

@@ -40,16 +40,16 @@ h1 {
      z-index: 2;
 }
 
-.topnav a.active {
-      background-color: #5ce2e7;
-      color: white;
-}
+    .topnav a.active {
+        background-color: #2e7174;
+        color: white;
+    }
 
 .dropdown {
     float: left;
     overflow: hidden;
     z-index: 4;
-    background-color: #5ce2e7;
+    background-color: #2e7174;
 }
 
 .dropdown .dropbtn {

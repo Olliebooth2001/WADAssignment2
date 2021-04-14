@@ -40,6 +40,8 @@ namespace WAD.Controllers
             List<Gig> model = _context.Gigs.ToList();
             return View(model);
         }
+
+     
         [HttpGet]
         public IActionResult AddFilm()
         {
@@ -68,7 +70,11 @@ namespace WAD.Controllers
                 };
                 _context.Add(newGig);
                 _context.SaveChanges();
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+               // return RedirectToAction("UpdateFilm");
+                return RedirectToAction("Upload", "Home");
+
+
             }
             return View();
 

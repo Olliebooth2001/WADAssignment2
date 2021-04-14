@@ -1,7 +1,7 @@
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;    
-    background-image:url("/Images/tupacSS.jpeg");
+    font-family: 'Roboto', sans-serif;
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/Images/paulMM.jpeg');
 }
   
 .topnav {
@@ -34,11 +34,11 @@ body {
     z-index: 2;
 
 }
-  
-.topnav a.active {
-    background-color: #5ce2e7;
-    color: white;
-}
+
+    .topnav a.active {
+        background-color: #2e7174;
+        color: white;
+    }
 .dropdown {
     float: left;
     overflow: hidden;

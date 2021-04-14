@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 
-<html>
+<html lang="en">
 <head>
     <title>Home</title>
     <meta name="viewport" content="width=device-width" />
@@ -15,16 +15,15 @@
 </head>
 <body>
     <div class="topnav">
-        <a class="active" href="@Url.Action("Index","Home")">
+        <a class="active" href="/HTML/testFile.html" >
             Home
-            <img class="logimg" src="~/Images/home.png" width="25" height="25">
-
+            <img class="logimg" src="~/Images/home.png" width="25" height="25" alt="Image unable to load">
         </a>
 
         <div class="dropdown">
             <button class="dropbtn">
                 Gigs
-                <img class="logimg" src="~/Images/gigs.png" width="25" height="25">
+                <img class="logimg" src="~/Images/gigs.png" width="25" height="25"  alt="Image unable to load">
 
                 <i class="fa fa-caret-down"></i>
             </button>
@@ -37,13 +36,13 @@
         </div>
         <a href="@Url.Action("ManageCart","Home")">
             CART
-            <img class="logimg" src="~/Images/cart.png" width="25" height="25">
+            <img class="logimg" src="~/Images/cart.png" width="25" height="25" alt="Image unable to load">
         </a>
         @if (ViewData["disName"].ToString().Contains("Not"))
         {
             <a href="@Url.Action("SignIn","Security")">
                 <span>login</span>
-                <img class="logimg" src="~/Images/login.png" width="20" height="20">
+                <img class="logimg" src="~/Images/login.png" width="20" height="20" alt="Image unable to load">
             </a>
 
         }
@@ -52,14 +51,14 @@
             <a href="@Url.Action("Index","CMS")">
                 @ViewData["disName"]
 
-                <img class="logimg" src="~/Images/login.png" width="20" height="20">
+                <img class="logimg" src="~/Images/login.png" width="20" height="20" alt="Image unable to load">
 
             </a>
         }
     </div>
        
 
-            <video autoplay muted loop id="myVideo">
+            <video autoplay muted loop id="myVideo" alt="unable to load Video">
                 <source src="Videos/music1.mp4" type="video/mp4">
                 Your browser does not support HTML5 video.
             </video>
@@ -78,7 +77,7 @@
         <img src="Images/nextButton.png" class="nextImageBack" onclick="minusFromImage()" alt="Back Button" width="100" height="100">
         <img src="Images/logo.png" class="logoIMG" alt="Back Button">
         <div class="audiofile">
-            <img src="Images/skip.png" class="skip" onclick="nextSong()" width="20" height="20">
+            <img src="Images/skip.png" class="skip" onclick="nextSong()" width="20" height="20" alt="Image unable to load">
 
             <p id="para">JNATHYN - Dioma [NCS Release]
 

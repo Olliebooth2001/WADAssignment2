@@ -1,0 +1,9 @@
+﻿
+
+
+
+<h1 style ="text-align:center;">Price Bands</h1>
+<p style="font-size: 15px;text-align:center;">Cheaper: Below £150</p>
+<p style="font-size: 15px;text-align:center;">Medium: Between £150 - £250</p>
+<p style="font-size: 15px;text-align:center;">Expensive: Above £150</p>
+

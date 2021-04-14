@@ -65,8 +65,41 @@
             }
         </div>
         <div class="container">
+            <h1>Gig Description<br /></h1>
             <p>@Model.GigDescription</p>
-            <form method="post">
+
+            <button type="button" style="margin:auto;" onclick="loadDoc()">Show Price Band</button>
+            <div id="demo">
+
+            </div>
+            @if (Model.GigPrice < 150)
+            {
+                <p id="pricee" style="font-size:15px;visibility:hidden; text-align:center; color:green;"><strong>CHEAP</strong>[Current Gig Price : @Model.GigPrice]</p>
+            }
+            else if (Model.GigPrice > 150 && Model.GigPrice < 250)
+            {
+                <p id="pricee" style="font-size:15px;visibility:hidden;text-align:center;color:green;"><strong>MEDIUM</strong>[Current Gig Price : @Model.GigPrice]</p>
+            }
+            else
+            {
+                <p id="pricee" style="font-size:15px;visibility:hidden;text-align:center;color:green;"><strong>EXPENSIVE</strong>[Current Gig Price : @Model.GigPrice]</p>
+            }
+            <script>
+                function loadDoc() {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("demo").innerHTML =
+                                this.responseText;
+                        }
+                    };
+                    xhttp.open("GET", "/AJAX/altText.txt", true);
+                    xhttp.send();
+                    document.getElementById("pricee").style.visibility = "visible";
+                }
+            </script>
+           
+            <form method="post" style="text-align:center;">
 
                 <input type="hidden" value="@Model.GigID" id="GigID" name="GigID" />
 
@@ -90,13 +123,13 @@
                     else
                     {
                         <input type="submit" value="Add To Cart" class="cta" id="but1" onclick="addedToCart()" />
-                        
+
                     }
                 </div>
                 <script>
                     function addedToCart() {
                         alert("Ticket has been added to cart!");
-                        
+
                     }
                     function checkLogin() {
                         alert("nein nein");
@@ -107,7 +140,6 @@
             <div class="shoppingCart">
                 @await Component.InvokeAsync("ShoppingCart")
             </div>
-            
         </div>
         <header style= "background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/Images/@Model.GigImage'); background-repeat: round;">
             <h1>@Model.GigTitle</h1>
