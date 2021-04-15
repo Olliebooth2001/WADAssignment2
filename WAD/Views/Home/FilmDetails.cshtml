@@ -38,7 +38,7 @@
                 <div class="dropdown-content">
                     <a href="@Url.Action("AllFilms","Home")">All Gigs</a>
                     <a href="@Url.Action("CheapGigs","Home")">Less than £150</a>
-                    <a href="@Url.Action("MediumPriceGigs","Home")">Less than £250</a>
+                    <a href="@Url.Action("MediumPriceGigs","Home")">Between £150 and £250</a>
                     <a href="@Url.Action("ExpensiveGigs","Home")">Over £250</a>
                 </div>
             </div>
@@ -65,15 +65,20 @@
             }
         </div>
         <div class="container">
+            <h1>Gig Referance ID: @Model.GigID</h1>
             <h1>Gig Description<br /></h1>
             <p>@Model.GigDescription</p>
-
+            <h1>Price: £@Model.GigPrice</h1>
+            <h1>Date: @Model.ReleaseDate.ToLongDateString()  </h1>
+            <h1>Time: @Model.ReleaseDate.ToLocalTime()</h1>   
+            
             <button type="button" style="margin:auto;" onclick="loadDoc()">Show Price Band</button>
             <div id="demo">
 
             </div>
             @if (Model.GigPrice < 150)
             {
+                
                 <p id="pricee" style="font-size:15px;visibility:hidden; text-align:center; color:green;"><strong>CHEAP</strong>[Current Gig Price : @Model.GigPrice]</p>
             }
             else if (Model.GigPrice > 150 && Model.GigPrice < 250)
@@ -98,7 +103,7 @@
                     document.getElementById("pricee").style.visibility = "visible";
                 }
             </script>
-           
+
             <form method="post" style="text-align:center;">
 
                 <input type="hidden" value="@Model.GigID" id="GigID" name="GigID" />

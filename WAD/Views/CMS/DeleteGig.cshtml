@@ -3,15 +3,20 @@
     Layout = "_CMSlayout";
     ViewData["Title"] = "Delete Gig";
 }
+<div class="dis-modal">
 
-<form method="post">
+    <div class="dismodal-content">
 
-    <input type="hidden" name="GigID" value="@Model.GigID" />
+        <form method="post">
 
-    <p>Delete film @Model.GigTitle?</p>
+            <input type="hidden" name="GigID" value="@Model.GigID" />
 
-    <p><input type="submit" value="Delete" class="delete" /></p>
+            <h1>Delete Gig @Model.GigTitle?</h1>
 
-    <p><a asp-controller="CMS" asp-action="Index" class="add">Keep</a><br></p>
+            <p><input type="submit" value="Delete" class="delete" /></p>
 
-</form>
+            <p><a asp-controller="CMS" asp-action="Index" class="add">Keep</a><br></p>
+
+        </form>
+    </div>
+</div>

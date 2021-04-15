@@ -31,7 +31,7 @@
                 <div class="dropdown-content">
                     <a href="@Url.Action("AllFilms","Home")">All Gigs</a>
                     <a href="@Url.Action("CheapGigs","Home")">Less than £150</a>
-                    <a href="@Url.Action("MediumPriceGigs","Home")">Less than £250</a>
+                    <a href="@Url.Action("MediumPriceGigs","Home")">Between £150 and £250</a>
                     <a href="@Url.Action("ExpensiveGigs","Home")">Over £250</a>
                 </div>
             </div>
@@ -39,23 +39,13 @@
                 CART
                 <img class="logimg" src="~/Images/cart.png" width="25" height="25">
             </a>
-            @if (ViewData["disName"].ToString().Contains("Not"))
-            {
+           
                 <a href="@Url.Action("SignIn","Security")">
                     <span>login</span>
                     <img class="logimg" src="~/Images/login.png" width="20" height="20">
                 </a>
 
-            }
-            else
-            {
-                <a href="@Url.Action("Index","CMS")">
-                    @ViewData["disName"]
-
-                    <img class="logimg" src="~/Images/login.png" width="20" height="20">
-
-                </a>
-            }
+            
         </div>
         <div class="op-modal">
             <div class="opmodal-content">

@@ -17,5 +17,7 @@ namespace WAD.Models
         }
 
         public DbSet<Gig> Gigs { get; set; }
+
+
     }
 }

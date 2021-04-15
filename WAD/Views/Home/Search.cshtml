@@ -34,7 +34,7 @@
             <div class="dropdown-content">
                 <a href="@Url.Action("AllFilms","Home")">All Gigs</a>
                 <a href="@Url.Action("CheapGigs","Home")">Less than £150</a>
-                <a href="@Url.Action("MediumPriceGigs","Home")">Less than £250</a>
+                <a href="@Url.Action("MediumPriceGigs","Home")">Between £150 and £250</a>
                 <a href="@Url.Action("ExpensiveGigs","Home")">Over £250</a>
             </div>
         </div>
@@ -66,9 +66,8 @@
         <form asp-action="Search" method="get" class="searchBar">
             <div>
 
-                <label for="SearchString">Search by Title: </label> <input type="text" name="SearchString" id="SearchString" />
+                <label for="SearchString" style="font-weight:900;">Search by Title: </label> <input type="text" name="SearchString" id="SearchString" />
 
-                <input type="submit" value="Filter" />
 
             </div>
         </form>
@@ -84,8 +83,8 @@
 
                 {
 
-                    <p>@item.GigTitle</p>
-
+                    <p>@item.GigTitle @item.ReleaseDate <a asp-controller="Home" asp-action="FilmDetails" asp-route-id="@item.GigID" style="text-decoration:none;color:green;">Details</a></p>
+                    
                 }
 
 

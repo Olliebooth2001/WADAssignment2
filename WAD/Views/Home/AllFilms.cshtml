@@ -31,7 +31,7 @@
             <div class="dropdown-content">
                 <a href="@Url.Action("AllFilms","Home")">All Gigs</a>
                 <a href="@Url.Action("CheapGigs","Home")">Less than £150</a>
-                <a href="@Url.Action("MediumPriceGigs","Home")">Less than £250</a>
+                <a href="@Url.Action("MediumPriceGigs","Home")">Between £150 and £250</a>
                 <a href="@Url.Action("ExpensiveGigs","Home")">Over £250</a>
             </div>
         </div>
@@ -57,8 +57,19 @@
             </a>
         }
     </div>
+            <div class="dropdown"style="z-index:-4;background-color:#2e7174;">
+                <button onclick="myFunction()" class="dropbtn">Year</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="@Url.Action("EarliestDates","Home")">2021</a>
+                    <a href="@Url.Action("TwentyTwo","Home")">2022</a>
+                    <a href="@Url.Action("TwentyThree","Home")">2023</a>
+                    <a href="@Url.Action("LaterDate","Home")">Later</a>
+                </div>
+            </div>
+        
 
     <a class="link" asp-controller="Home" asp-action="Search">
+        
         <div class="button">
 
             Search for a Gig
@@ -66,7 +77,11 @@
             <img src="/Images/search.png" width="20" height="20" />
 
         </div>
+
     </a>
+  
+
+
 
     <section class="wrap">
         @foreach (var item in Model)
@@ -74,17 +89,17 @@
             <div class="filmThumb">
 
                 <a asp-controller="Home" asp-action="FilmDetails" asp-route-id="@item.GigID">
-                    <div><img class="gigImg" src="~/Images/@item.GigImage" width="450"height="286"/></div>
+                    <div><img class="gigImg" src="~/Images/@item.GigImage" width="450" height="286" /></div>
                 </a>
                 <h3 class="title">@item.GigTitle</h3>
                 <h3>@item.ReleaseDate</h3>
-             
+
             </div>
-           
+
 
         }
     </section>
-   
+
 
 </body>
 </html>

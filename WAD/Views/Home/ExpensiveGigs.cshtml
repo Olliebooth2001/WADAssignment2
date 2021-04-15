@@ -30,7 +30,7 @@
             <div class="dropdown-content">
                 <a href="@Url.Action("AllFilms","Home")">All Gigs</a>
                 <a href="@Url.Action("CheapGigs","Home")">Less than £150</a>
-                <a href="@Url.Action("MediumPriceGigs","Home")">Less than £250</a>
+                <a href="@Url.Action("MediumPriceGigs","Home")">Between £150 and £250</a>
                 <a href="@Url.Action("ExpensiveGigs","Home")">Over £250</a>
             </div>
         </div>
@@ -72,7 +72,7 @@
         {
             <div class="filmThumb">
                 <a asp-controller="Home" asp-action="FilmDetails" asp-route-id="@item.GigID">
-                    <div><img src="~/Images/@item.GigImage" /></div>
+                    <div><img src="~/Images/@item.GigImage"  width="450" height="286"/></div>
                 </a>
                 <h3 class="title">@item.GigTitle</h3>
                 <h3>@item.ReleaseDate</h3>

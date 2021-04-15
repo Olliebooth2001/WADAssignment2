@@ -102,6 +102,89 @@ namespace WAD.Controllers
             return View(model);
 
         }
+        public IActionResult EarliestDates()
+        {
+            if (HttpContext.Session.GetString("name") == null)
+            {
+                ViewData["disName"] = "Not set";
+            }
+            else
+            {
+                ViewData["disName"] = HttpContext.Session.GetString("name");
+            }
+
+            var gigs = from m in _context.Gigs
+                       where m.ReleaseDate.Year == 2021
+                       orderby m.ReleaseDate.Month ascending
+
+                       select m;
+            List<Gig> model = gigs.ToList();
+
+
+            return View(model);
+        }
+        public IActionResult TwentyTwo()
+        {
+            if (HttpContext.Session.GetString("name") == null)
+            {
+                ViewData["disName"] = "Not set";
+            }
+            else
+            {
+                ViewData["disName"] = HttpContext.Session.GetString("name");
+            }
+
+            var gigs = from m in _context.Gigs
+                       where m.ReleaseDate.Year == 2022
+                       orderby m.ReleaseDate.Month ascending
+                       select m;
+            List<Gig> model = gigs.ToList();
+
+
+            return View(model);
+        }
+        public IActionResult TwentyThree()
+        {
+            if (HttpContext.Session.GetString("name") == null)
+            {
+                ViewData["disName"] = "Not set";
+            }
+            else
+            {
+                ViewData["disName"] = HttpContext.Session.GetString("name");
+            }
+
+            var gigs = from m in _context.Gigs
+                       where m.ReleaseDate.Year == 2023
+                       orderby m.ReleaseDate.Month ascending
+
+                       select m;
+            List<Gig> model = gigs.ToList();
+
+
+            return View(model);
+        }
+        public IActionResult LaterDate()
+        {
+            if (HttpContext.Session.GetString("name") == null)
+            {
+                ViewData["disName"] = "Not set";
+            }
+            else
+            {
+                ViewData["disName"] = HttpContext.Session.GetString("name");
+            }
+
+            var gigs = from m in _context.Gigs
+                       where m.ReleaseDate.Year > 2030
+                       orderby m.ReleaseDate.Month ascending
+
+                       select m;
+            List<Gig> model = gigs.ToList();
+
+
+            return View(model);
+        }
         public IActionResult CheapGigs()
         {
 
@@ -118,10 +201,13 @@ namespace WAD.Controllers
             var gigs = from m in _context.Gigs
 
                        where m.GigPrice <= 150
+                       orderby m.GigPrice ascending
 
                        select m;
 
-            List<Gig> model = gigs.ToList();
+           
+
+            List < Gig > model = gigs.ToList();
 
 
             return View(model);
@@ -143,6 +229,7 @@ namespace WAD.Controllers
             var gigs = from m in _context.Gigs
 
                        where m.GigPrice >150 && m.GigPrice <300
+                       orderby m.GigPrice ascending
 
                        select m;
 
@@ -166,7 +253,7 @@ namespace WAD.Controllers
             var gigs = from m in _context.Gigs
 
                        where m.GigPrice >= 300
-
+                       orderby m.GigPrice ascending
                        select m;
 
             List<Gig> model = gigs.ToList();
@@ -297,6 +384,8 @@ namespace WAD.Controllers
                 var gigs = from m in _context.Gigs
 
                             where m.GigTitle.Contains(SearchString)
+
+                            orderby m.GigTitle ascending
 
                             select m;
 

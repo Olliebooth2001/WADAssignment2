@@ -2,30 +2,29 @@
 @{
     Layout = "_CMSlayout";
 }
-<h1 class="head1" style="text-align:center;">@Model.GigTitle</h1>
 
 <div class="addContainer">
 
     <form asp-controller="CMS" asp-action="UpdateFilm">
         <input type="hidden" name="GigID" value="@Model.GigID" />
         <div>
-            <label>Film Title</label>
+            <label>Gig Title</label>
             <input asp-for="GigTitle" />
             <span asp-validation-for="GigTitle" class="error"></span>
         </div>
 
         <div>
-            <label asp-for="GigDescription">Film Description</label>
+            <label asp-for="GigDescription">Gig Description</label>
             <textarea asp-for="GigDescription"></textarea>
         </div>
 
         <div>
-            <label asp-for="GigImage">Film Image</label>
+            <label asp-for="GigImage">Gig Image</label>
             <input type="text" asp-for="GigImage" />
         </div>
 
         <div>
-            <label asp-for="GigPrice">Film Price</label>
+            <label asp-for="GigPrice">Gig Price</label>
             <input type="text" asp-for="GigPrice" />
         </div>
 

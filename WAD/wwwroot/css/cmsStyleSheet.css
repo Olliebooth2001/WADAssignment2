@@ -275,3 +275,31 @@ input[type=text], input[type=password], textarea {
     }
 }
 
+.dis-modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+    font-family: 'Bebas Neue', cursive;
+    color: white;
+}
+
+.dismodal-content {
+    width: 400px;
+    height: 350px;
+    background-color: black;
+    border-radius: 7px;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    text-decoration: none;
+}
+
+.submit {
+    font-family: 'IBM Plex Mono', monospace;
+}

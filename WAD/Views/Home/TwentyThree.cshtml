@@ -15,7 +15,7 @@
 
 <body>
     <div class="topnav">
-        <a  href="@Url.Action("Index","Home")">
+        <a href="@Url.Action("Index","Home")">
             Home
             <img class="logimg" src="~/Images/home.png" width="25" height="25">
         </a>
@@ -72,7 +72,7 @@
         {
             <div class="filmThumb">
                 <a asp-controller="Home" asp-action="FilmDetails" asp-route-id="@item.GigID">
-                    <div><img src="~/Images/@item.GigImage"  width="450" height="286"/></div>
+                    <div><img src="~/Images/@item.GigImage" width="450" height="286" /></div>
                 </a>
                 <h3 class="title">@item.GigTitle</h3>
                 <h3>@item.ReleaseDate</h3>

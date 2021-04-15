@@ -8,7 +8,7 @@ body {
     background-color: black;
     font-family: 'IBM Plex Mono', monospace;
     color: white;
-    background-image: url('https://images.unsplash.com/photo-1466584820433-9ad1cc6798f3?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8ZGFyayUyMGJhY2tncm91bmQlMjBtdXNpY3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80')
+   background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ),url('https://images.unsplash.com/photo-1466584820433-9ad1cc6798f3?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8ZGFyayUyMGJhY2tncm91bmQlMjBtdXNpY3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80')
 }
 
 h1 {
@@ -103,7 +103,9 @@ h1 {
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
+.noflex{
+    background-color:black;
+}
 section {
     justify-content: center;
     flex: 0 0 75%;

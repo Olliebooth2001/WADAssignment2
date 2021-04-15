@@ -2,7 +2,7 @@
     Layout = null;
 }
 <head>
-    <title>Cheap Gigs</title>
+    <title>Late Gigs</title>
     <link rel="shortcut icon" type="image/png" href="~/Images/favicon.png" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
 
 <body>
     <div class="topnav">
-        <a  href="@Url.Action("Index","Home")">
+        <a href="@Url.Action("Index","Home")">
             Home
             <img class="logimg" src="~/Images/home.png" width="25" height="25">
         </a>
@@ -72,7 +72,7 @@
         {
             <div class="filmThumb">
                 <a asp-controller="Home" asp-action="FilmDetails" asp-route-id="@item.GigID">
-                    <div><img src="~/Images/@item.GigImage"  width="450" height="286"/></div>
+                    <div><img src="~/Images/@item.GigImage" /></div>
                 </a>
                 <h3 class="title">@item.GigTitle</h3>
                 <h3>@item.ReleaseDate</h3>

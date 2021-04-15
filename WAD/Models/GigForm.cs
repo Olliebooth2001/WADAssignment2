@@ -7,8 +7,7 @@ using System.ComponentModel.DataAnnotations;
 namespace WAD.Models
 {
     public class GigForm
-    {
-        
+    {    
         [Key]
         public int GigID { get; set; }
 
@@ -18,7 +17,10 @@ namespace WAD.Models
         public string GigDescription { get; set; }
 
         public string GigImage { get; set; }
+
         public decimal GigPrice { get; set; }
+        public decimal GigStars{ get; set; }
+
 
         public DateTime ReleaseDate { get; set; }
 
